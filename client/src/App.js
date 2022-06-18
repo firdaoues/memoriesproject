@@ -20,7 +20,7 @@ const App = () => {
           className={classes.heading}
           variant="h2"
           align="center"
-        ></Typography>
+        > Memories</Typography>
         <img
           className={classes.image}
           src={memories}
