@@ -1,9 +1,11 @@
 import express from "express";
+import mongoose from "mongoose";
 import PostMessage from "../models/PostMessage.js";
+const router = express.Router();
 
 export const getPosts = async (req, res) => {
   try {
-    const postMessages = await PostMessage.find();
+    const postMessages = await PostMessage.find().select(["-selectedFile"]);
 
     res.status(200).json(postMessages);
   } catch (error) {
