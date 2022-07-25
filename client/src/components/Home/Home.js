@@ -3,7 +3,7 @@ import { Container, Grow, Grid, Paper, AppBar, TextField, Button } from "@materi
 import { useHistory, useLocation } from 'react-router-dom';
 import ChipInput from 'material-ui-chip-input';
 import { useDispatch } from "react-redux";
-import { getPosts } from "../../actions/posts";
+import { getPosts, getPostsBySearch } from "../../actions/posts";
 import Pagination from '../Pagination';
 
 import Posts from '../Posts/Posts';
@@ -28,17 +28,18 @@ const Home = () => {
     const [tags, setTags] = useState([]);
 
 
-    useEffect(() => {
-      dispatch(getPosts());
-    }, [currentId, dispatch]);
+    // useEffect(() => {
+    //   dispatch(getPosts());
+    // }, [currentId, dispatch]);
 
     const searchPost = () => {
-      if(search.trim()) {
-
+      if (search.trim() || tags) {
+        dispatch(getPostsBySearch({ search, tags: tags.join(',')}));
+        history.push(`/posts/search?searchQuery =${search || 'none'}&tags=${tags.join(',')}`);
       } else {
         history.push('/');
       }
-    }
+    };
     
 
     const handleKeyPress= (e) =>{
@@ -82,7 +83,7 @@ const Home = () => {
           <Form currentId={currentId} setCurrentId={setCurrentId} />
 
           <Paper  elevation={6}>
-            <Pagination/>
+            <Pagination page ={page}/>
           </Paper>
 
         </Grid>

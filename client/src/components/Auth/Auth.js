@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Avatar, Button, Paper, Grid, Typography, Container,} from '@material-ui/core';
-import { GoogleLogin } from 'react-google-login';
+
+import { GoogleLogin } from '@react-oauth/google'
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Icon from './icon';
@@ -74,7 +75,8 @@ const Auth = () => {
                     </Grid>
                     <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
                     {isSignup ? 'Sign Up' : 'Sign In'} </Button>
-                    <GoogleLogin 
+                   
+                    {/* <GoogleLogin 
                             clientId= "1097191340504-7akf52gbg2pg1b4esvlsnu4b0djejbmh.apps.googleusercontent.com"
                             render={(renderProps) => (
                                 <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon />} variant="contained">
@@ -84,7 +86,7 @@ const Auth = () => {
                             onSuccess ={googleSuccess}
                             onFailure ={googleFailure}
                             cookiePolicy="single_host_origin"
-                            />
+                            /> */}
                     <Grid container justifyContent="flex-end">
                         <Grid item>
                             <Button onClick={switchMode}>
