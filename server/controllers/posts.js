@@ -6,7 +6,7 @@ const router = express.Router();
 export const getPosts = async (req, res) => {
   const {page} =req.query;
   try {
-    const LIMIT = 2; //number of posts per page
+    const LIMIT = 8; //number of posts per page
     const startIndex=(Number(page) -1) * LIMIT;//get the starting index of every page
     const total = await PostMessage.countDocuments({});
     
@@ -29,6 +29,20 @@ export const getPostsBySearch = async(req, res) => {
     res.status(404).json({ message: error.message})
   }
 }
+
+export const getPost = async (req, res) => {
+  const { id } =req.params;
+  try {
+    
+    const post = await PostMessage.findById(id);
+    
+    
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+}
+
 export const createPosts = async (req, res) => {
   const post = req.body;
   const newPost = new PostMessage({ ...post, creator: req.userId, createdAt: new Date().toISOString()});
