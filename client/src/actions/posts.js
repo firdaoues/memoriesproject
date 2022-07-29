@@ -1,4 +1,4 @@
-import {FETCH_ALL, FETCH_BY_SEARCH, FETCH_POST, CREATE, UPDATE, DELETE, START_LOADING, END_LOADING} from '../constants/actionTypes';
+import {FETCH_ALL, FETCH_BY_SEARCH, FETCH_POST, CREATE, UPDATE, COMMENT, DELETE, START_LOADING, END_LOADING} from '../constants/actionTypes';
 import * as api from "../api/index.js";
 
 //Action Creators
@@ -53,6 +53,7 @@ export const createPost = (post, history) =>async (dispatch)=> {
   }
 };
 
+
 export const updatePost = (id, post) => async (dispatch) => {
   try {
     const { data } = await api.updatePost(id, post);
@@ -80,3 +81,18 @@ export const deletePost = (id) => async(dispatch) => {
     console.log(error);
   }
  }
+   
+ export const commentPost = (value, id) => async(dispatch) =>{
+  
+  try {
+    const { data } = await api.comment(value, id);
+
+    dispatch ({ type: COMMENT , payload: data });
+
+    return data.comments;
+
+  } catch (error) {
+    console.log(error);
+  
+  }
+}

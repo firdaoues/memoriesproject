@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import PostMessage from "../models/postMessage.js";
 const router = express.Router();
 
+
+
 export const getPosts = async (req, res) => {
   const {page} =req.query;
   try {
@@ -99,3 +101,20 @@ export const likePost = async (req, res) => {
  return res.status(200).json(updatedPost);
 }
 
+export const commentPost = async (req, res) => {
+   const { id } = req.params;
+   const { value } = req.body;
+       
+    const post = await PostMessage.findById(id);
+    post.comments.push(value);
+
+    const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {new: true});
+     
+    
+    return res.json(updatedPost);
+
+}
+
+
+
+export default router;
