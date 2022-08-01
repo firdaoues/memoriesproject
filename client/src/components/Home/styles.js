@@ -18,4 +18,10 @@ export default makeStyles((theme) => ({
         flexDirection:'column-reverse',
       },
     },
+    Users:{
+      borderRadius: 4,
+      marginTop:'10rem',
+      padding: '16px',
+      
+    }
   }));
