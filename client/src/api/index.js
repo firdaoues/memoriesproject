@@ -9,7 +9,7 @@ API.interceptors.request.use((req) => {
     return req;
 })
 
-export const fetchUsers = (req, res) => API.get('/users');
+export const fetchUsers = () => API.get('/users');
 export const fetchPosts =  (page) => API.get(`/posts?page=${page}`);
 export const fetchPost =  (id) => API.get(`/posts/${id}`);
 

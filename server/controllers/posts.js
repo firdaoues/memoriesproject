@@ -2,18 +2,12 @@ import express from "express";
 import mongoose from "mongoose";
 import User from '../models/user.js';
 import PostMessage from "../models/postMessage.js";
-import User from '../models/user.js';
+
 
 
 const router = express.Router();
 
->>>>>>> 843a102307bc26e4116f02de3b749b5f28c0ba7f
 
-export const getUsers = async (req,res)=>{
-   
-  try 
-      
-      const users = await User.find();  
 
 export const getUsers = async (req, res) => {
   

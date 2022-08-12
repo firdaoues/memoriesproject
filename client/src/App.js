@@ -8,7 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
 import Users from './components/Users/Users';
-import Users from './components/Users/Users';
+
 
  
 const App = () => {

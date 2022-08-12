@@ -4,11 +4,11 @@ import * as api from "../api/index.js";
 //Action Creators
 export const getUsers = () => async (dispatch) => {
   try {
-    dispatch({ type:  START_LOADING });
-    const { data } = api.fetchUsers();
-    
+  
+    const { data } = await api.fetchUsers();
+
     dispatch({ type: FETCH_USERS, payload: data });
-    dispatch({ type:  END_LOADING });
+   
   } catch (error) {
     console.log(error.message);
   }

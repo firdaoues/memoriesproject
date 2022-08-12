@@ -1,5 +1,6 @@
+
 import React , { useEffect }from 'react'
-import { DataGrid } from "@mui/x-data-grid";
+
 
 
 import { useSelector } from "react-redux";
@@ -16,7 +17,7 @@ const Users = () => {
   return (
     <>
           
-
+   <div> </div>
     { users.map((user) => (
         
         <div>
@@ -28,6 +29,6 @@ const Users = () => {
  
     </>
   )
-}
+    }
 
 export default Users
