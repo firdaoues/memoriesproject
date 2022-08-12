@@ -2,7 +2,13 @@ import {FETCH_BY_SEARCH, FETCH_POST, FETCH_ALL, CREATE, UPDATE, DELETE, START_LO
 
 export default (state = { isLoading: true, posts: [] , users: [] }, action) => {
   switch (action.type) {
-
+    
+    case FETCH_USERS:
+      return {
+        ...state,
+        users: action.payload.data
+        
+      };
 
     case START_LOADING :
       return {...state, isLoading: true} ;
