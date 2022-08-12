@@ -7,6 +7,7 @@ import PostDetails from './components/PostDetails/PostDetails';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
+import Users from './components/Users/Users';
 
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
     <Container maxWidth="xl">
     <Navbar />
     <Switch>
-   
+    <Route path="/users" exact component={Users} /> 
     <Route path="/" exact component={() => <Redirect to="/posts" />} />  
     <Route path="/posts" exact component={Home} />
     <Route path="/posts/search" exact component={Home} />

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL : "http://localhost:5000" })
+const API = axios.create({ baseURL : "http://localhost:5001" })
 
 API.interceptors.request.use((req) => {
     if(localStorage.getItem('profile')) {
@@ -9,7 +9,7 @@ API.interceptors.request.use((req) => {
     return req;
 })
 
-
+export const fetchUsers = (req, res) => API.get('/users');
 export const fetchPosts =  (page) => API.get(`/posts?page=${page}`);
 export const fetchPost =  (id) => API.get(`/posts/${id}`);
 

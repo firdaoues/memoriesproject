@@ -3,7 +3,7 @@ import { Container, Grow, Grid, Paper, AppBar, TextField, Button } from "@materi
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import ChipInput from 'material-ui-chip-input';
 import { useDispatch } from "react-redux";
-import { getPosts, getPostsBySearch } from "../../actions/posts";
+import { getUsers, getPostsBySearch } from "../../actions/posts";
 import Pagination from '../Pagination';
 
 import Posts from '../Posts/Posts';
@@ -26,7 +26,8 @@ const Home = () => {
     const classes = useStyles();
     const [search, setSearch] = useState('');
     const [tags, setTags] = useState([]);
-
+    
+     
 
     const searchPost = () => {
       if (search.trim() || tags) {

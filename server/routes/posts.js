@@ -1,12 +1,12 @@
 import express from "express";
-import { getPostsBySearch, getPosts, getPost, createPosts, commentPost, updatePost, deletePost, likePost } from "../controllers/posts.js";
+import { getUsers, getPostsBySearch, getPosts, getPost, createPosts, commentPost, updatePost, deletePost, likePost } from "../controllers/posts.js";
 import auth from '../middleware/auth.js';
 const router = express.Router();
 
 router.get("/search", getPostsBySearch);
 
 
-
+router.get("/users", getUsers);
 
 router.get("/:id", getPost);
 router.get("/", getPosts);
