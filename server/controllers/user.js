@@ -1,7 +1,13 @@
+import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 import User from '../models/user.js';
+
+const router = express.Router();
+
+
+
 
 export const signin = async (req, res) => {
     const { email, password } = req.body;
@@ -46,3 +52,5 @@ export const signup = async (req, res) => {
     }
 
 }
+
+

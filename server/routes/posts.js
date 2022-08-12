@@ -6,8 +6,8 @@ const router = express.Router();
 router.get("/search", getPostsBySearch);
 
 
-router.get("/users", getUsers);
 
+router.get("/users", getUsers);
 router.get("/:id", getPost);
 router.get("/", getPosts);
 

@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
+import {Card, CardMedia, Typography } from '@material-ui/core'
 
 
-
-const User = () => {
+const User = (user) => {
   return (
-  
-<div> user</div>
+    <Card raised elevation={6}>
+    <div>
+      <Typography variant="body2">{user.name}</Typography>
+      <Typography variant="subtitle">{user.email}</Typography>
+    </div>
+    </Card>
   )
 }
 
