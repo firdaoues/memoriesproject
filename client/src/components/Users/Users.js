@@ -22,18 +22,17 @@ const Users = () => {
   const classes = useStyles();
     const dispatch = useDispatch();
     const users = useSelector((state) => state.users);
-    console.log(users);
-   
+  
     useEffect (() => {
         dispatch(getUsers());
       }, [dispatch])
   return (
     <>
 <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 650 }} aria-label="simple table" >
         <TableHead>
         <TableRow >
-            <TableCell className={classes.table}>Name</TableCell>
+            <TableCell >Name</TableCell>
             <TableCell >Email</TableCell>
             </TableRow>
         </TableHead>
