@@ -12,24 +12,24 @@ import Paper from '@mui/material/Paper';
 import {useHistory} from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { getUsers, getUser} from "../../actions/posts";
+import { getUsers , getUser} from "../../actions/posts";
 import useStyles from "./styles";
 
 
 
-const Users =(  ) => {
+const Users =() => {
   const classes = useStyles();
     const dispatch = useDispatch();
     const history = useHistory();
-    const { users } = useSelector((state) => state.users);
-  
+    const users  = useSelector((state) => state.users);
+ 
     
     useEffect (() => {
         dispatch(getUsers());
       }, [dispatch])
     
-      
-      const openUser = () => history.push(`/users/${users.id}`);
+    
+      const openUser = (id) => history.push(`/users/${users.id}`);
   return (
     <>
 <TableContainer component={Paper}>
@@ -43,8 +43,8 @@ const Users =(  ) => {
         <TableBody>
         { users.map((user) => (
          <>
-         <TableRow className={classes.user} >
-        <TableCell key={user.id}  onClick={openUser} >
+         <TableRow className={classes.user} key={user.id}  onClick={openUser} >
+        <TableCell  >
         
         {user.name}
         
