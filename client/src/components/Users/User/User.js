@@ -2,14 +2,9 @@ import React, { useState } from 'react'
 import {Card, CardMedia, Typography } from '@material-ui/core'
 
 
-const User = (user) => {
+const User = (user, {setCurrentId}) => {
   return (
-    <Card raised elevation={6}>
-    <div>
-      <Typography variant="body2">{user.name}</Typography>
-      <Typography variant="subtitle">{user.email}</Typography>
-    </div>
-    </Card>
+   <h1>User</h1>
   )
 }
 

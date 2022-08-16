@@ -1,4 +1,4 @@
-import { FETCH_USERS  } from '../constants/actionTypes';
+import { FETCH_USER, FETCH_USERS  } from '../constants/actionTypes';
 
 export default ( users = [] , action ) => {
     switch (action.type) {
@@ -7,7 +7,14 @@ export default ( users = [] , action ) => {
           
           return  action.payload;
 
+        case FETCH_USER:
+          return  { 
+            user : action.payload
+          };
+          
+
         default:
         return users;
+
 }
 }
