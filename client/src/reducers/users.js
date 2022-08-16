@@ -8,9 +8,8 @@ export default ( users = [] , action ) => {
           return  action.payload;
 
         case FETCH_USER:
-          return  { 
-            user : action.payload,
-          };
+          return action.payload;
+          
           
 
         default:

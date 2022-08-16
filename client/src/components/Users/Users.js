@@ -29,8 +29,8 @@ const Users =() => {
      
       }, [dispatch])
     
-    console.log(users)
-      const openUser = (userId) => history.push(`/users/${userId}}`);
+   
+      const openUser = (_id) => history.push(`/users/${_id}`);
   return (
     <>
 <TableContainer component={Paper}>
@@ -42,9 +42,9 @@ const Users =() => {
             </TableRow>
         </TableHead>
         <TableBody>
-        { users.map((user) => (
+        {users.map((user) => (
          <>
-         <TableRow className={classes.user} key={user.id}  onClick={() => openUser(user._id )}   >
+         <TableRow className={classes.user} key={user.id}  onClick={() => openUser(user._id)} >
         <TableCell  >
         
         {user.name}
