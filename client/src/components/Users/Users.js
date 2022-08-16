@@ -22,14 +22,15 @@ const Users =() => {
     const dispatch = useDispatch();
     const history = useHistory();
     const users  = useSelector((state) => state.users);
- 
+  
     
     useEffect (() => {
         dispatch(getUsers());
+     
       }, [dispatch])
     
-    
-      const openUser = (id) => history.push(`/users/${users.id}`);
+    console.log(users)
+      const openUser = (userId) => history.push(`/users/${userId}}`);
   return (
     <>
 <TableContainer component={Paper}>
@@ -43,7 +44,7 @@ const Users =() => {
         <TableBody>
         { users.map((user) => (
          <>
-         <TableRow className={classes.user} key={user.id}  onClick={openUser} >
+         <TableRow className={classes.user} key={user.id}  onClick={() => openUser(user._id )}   >
         <TableCell  >
         
         {user.name}

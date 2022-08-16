@@ -6,7 +6,12 @@ export const getUsers = () => async (dispatch) => {
   try {
   
     const { data } = await api.fetchUsers();
-
+    if(data.length){
+      data.map(user=>{
+        user.id = user._id
+      
+      })
+    }
     dispatch({ type: FETCH_USERS, payload: data });
    
   } catch (error) {
