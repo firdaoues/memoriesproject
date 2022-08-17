@@ -26,8 +26,8 @@ const User = () => {
 
   
 
-  const pubPosts = posts.filter(() => post.name == user.name);
-  debugger
+  const pubPosts = posts.filter(() => post.name === user.name);
+
 
   const openPost = (_id) => history.push(`/posts/${_id}`);
   return (
@@ -39,10 +39,10 @@ const User = () => {
         </div>
     
         {pubPosts.length && ( 
-        <div className={classes.section}>
+        <div >
         <Typography gutterBottom variant="h5"> {user.name} has also published : </Typography>
         <Divider />
-          <div className={classes.recommendedPosts}>
+          <div >
            {pubPosts.map(({title, selectedFile, _id}) =>(
             <div style={{margin: '20px', cursor:'pointer'}} onClick ={() => openPost(_id)} key={_id}> 
 
