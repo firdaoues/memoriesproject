@@ -12,10 +12,13 @@ const User = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  const { id } = useParams();
+
   const classes = useStyles();
   const user  = useSelector((state) => state.users)
   const { post , posts } = useSelector((state) => state.posts);
+
+  const { id } = useParams();
+
 
   useEffect(() => {
     dispatch(getUser(id));
@@ -39,7 +42,7 @@ const User = () => {
         <Typography gutterBottom variant="h5"> {user.name} has also published : </Typography>
         <Divider />
           <div className={classes.recommendedPosts}>
-           {pubPosts.map(({title, message, name, likes, selectedFile, _id}) =>(
+           {pubPosts.map(({title, selectedFile, _id}) =>(
             <div style={{margin: '20px', cursor:'pointer'}} onClick ={() => openPost(_id)} key={_id}> 
 
             <Typography gutterBottom variant="h6"> {title} </Typography>
