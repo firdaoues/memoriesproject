@@ -5,17 +5,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { useParams, useHistory } from 'react-router-dom';
 
-import { getUser, getPost } from '../../../actions/posts'
+import { getUser, getPosts, getPost } from '../../../actions/posts'
 import useStyles from './styles';
 
 const User = () => {
-
+  const { post , posts } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
   const history = useHistory();
 
   const classes = useStyles();
   const user  = useSelector((state) => state.users)
-  const { post , posts } = useSelector((state) => state.posts);
+  
 
   const { id } = useParams();
 
@@ -24,9 +24,10 @@ const User = () => {
     dispatch(getUser(id));
   }, [id]);
 
+  
 
-  const pubPosts = posts.filter(() => post.name == user.name);
-  console.log(pubPosts);
+  const pubPosts = posts.filter((post) => post.name === user.name);
+  debugger
 
   const openPost = (_id) => history.push(`/posts/${_id}`);
   return (

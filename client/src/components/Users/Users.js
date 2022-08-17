@@ -44,7 +44,7 @@ const Users =() => {
         <TableBody>
         {users.map((user) => (
          <>
-         <TableRow className={classes.user} key={user.id}  onClick={() => openUser(user._id)} >
+         <TableRow className={classes.user} key={user._id}  onClick={() => openUser(user._id)} >
         <TableCell  >
         
         {user.name}
