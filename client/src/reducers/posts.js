@@ -1,6 +1,6 @@
 import {FETCH_BY_SEARCH, FETCH_POST, FETCH_ALL, CREATE, UPDATE, DELETE, START_LOADING, COMMENT, END_LOADING, } from '../constants/actionTypes';
 
-export default (state = { isLoading: true, posts: [] , users: [] }, action) => {
+export default (state = { isLoading: true, posts: []  }, action) => {
   switch (action.type) {
 
    

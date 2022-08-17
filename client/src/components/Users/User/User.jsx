@@ -9,11 +9,13 @@ import { getUser, getPosts, getPost } from '../../../actions/posts'
 import useStyles from './styles';
 
 const User = () => {
-  const { post , posts } = useSelector((state) => state.posts);
+
+
   const dispatch = useDispatch();
   const history = useHistory();
 
   const classes = useStyles();
+  const { posts } = useSelector((state) => state.posts);
   const user  = useSelector((state) => state.users)
   
 
@@ -21,14 +23,15 @@ const User = () => {
 
 
   useEffect(() => {
+    dispatch(getPosts());
     dispatch(getUser(id));
   }, [id]);
 
-  
-
-  const pubPosts = posts.filter(() => post.name === user.name);
 
 
+  const pubPosts = posts.filter((post) => post.creator === user._id);
+
+console.log(posts)
   const openPost = (_id) => history.push(`/posts/${_id}`);
   return (
     <Paper style={{ padding:'20px', borderRaduis:'15px'}} elevation={6}>
@@ -43,14 +46,14 @@ const User = () => {
         <Typography gutterBottom variant="h5"> {user.name} has also published : </Typography>
         <Divider />
           <div >
-           {pubPosts.map(({title, selectedFile, _id}) =>(
-            <div style={{margin: '20px', cursor:'pointer'}} onClick ={() => openPost(_id)} key={_id}> 
+           {pubPosts.map((post) =>(
+            <div style={{margin: '20px', cursor:'pointer'}} onClick ={() => openPost(post._id)} key={post._id}> 
 
-            <Typography gutterBottom variant="h6"> {title} </Typography>
+            <Typography gutterBottom variant="h6"> {post.title} </Typography>
             <Typography variant="body1">{moment(post.createdAt).fromNow()}</Typography>
             
            
-            <img src={selectedFile} width="200px" />
+            <img src={post.selectedFile} width="200px" />
             
              </div>
            ))}
