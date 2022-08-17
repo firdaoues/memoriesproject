@@ -26,7 +26,7 @@ const User = () => {
 
   
 
-  const pubPosts = posts.filter((post) => post.name === user.name);
+  const pubPosts = posts.filter(() => post.name == user.name);
   debugger
 
   const openPost = (_id) => history.push(`/posts/${_id}`);
